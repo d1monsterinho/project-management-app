@@ -1,8 +1,9 @@
 import ProjectsSidebar from "./components/ProjectsSidebar/ProjectsSidebar";
+import NewProjectMenu from "./components/NewProjectMenu/NewProjectMenu";
 
 function App() {
   return (
-    <main className="h-screen my-8">
+    <main className="h-screen my-8 flex gap-8">
       <ProjectsSidebar />
     </main>
   );
