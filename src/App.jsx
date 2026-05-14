@@ -19,6 +19,22 @@ function App() {
     });
   }
 
+  function onNewProjectMenuSaveClick(title, description, dueDate) {
+    setProjectsState(prev => {
+      const newProject = {
+        id: Math.random(),
+        title: title,
+        description: description,
+        dueDate: dueDate,
+      };
+
+      return({
+        selectedProjectId: undefined,
+        projects: [...prev.projects, newProject],
+      });
+    });
+  }
+
   function onNewProjectMenuCancelClick() {
     setProjectsState(prev => {
       return ({
@@ -29,13 +45,13 @@ function App() {
   }
 
   const content = projectsState.selectedProjectId === null ?
-    <NewProjectMenu onCancelClick={onNewProjectMenuCancelClick}/>
+    <NewProjectMenu onSaveClick={onNewProjectMenuSaveClick} onCancelClick={onNewProjectMenuCancelClick}/>
     :
     <NoProjectSelectedPlaceholder onCreateProjectClick={onAddProjectClick}/>;
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onAddProjectClick={onAddProjectClick}/>
+      <ProjectsSidebar onAddProjectClick={onAddProjectClick} projectsState={projectsState} />
       {content}
     </main>
   );
