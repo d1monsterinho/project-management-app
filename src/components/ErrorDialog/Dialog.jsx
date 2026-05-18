@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 import Button from '../Button/Button';
 
-export default function ErrorDialog({ children, ref, buttonLabel }) {
+export default function Dialog({ children, ref, buttonLabel, onDialogButtonClick }) {
     const dialogRef = useRef();
 
     useImperativeHandle(ref, () => (
@@ -18,7 +18,7 @@ export default function ErrorDialog({ children, ref, buttonLabel }) {
         <dialog className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md" ref={dialogRef}>
             {children}
             <form className="mt-8 text-right"method="dialog">
-                <Button>{buttonLabel}</Button>
+                <Button onClick={onDialogButtonClick}>{buttonLabel}</Button>
             </form>
         </dialog>
         , document.getElementById('modal-root'));

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import Input from '../Input/Input';
-import ErrorDialog from '../ErrorDialog/ErrorDialog';
+import Dialog from '../ErrorDialog/Dialog';
 
 export default function NewProjectMenu({ onSaveClick, onCancelClick }) {
     const titleRef = useRef();
@@ -25,13 +25,13 @@ export default function NewProjectMenu({ onSaveClick, onCancelClick }) {
 
     return (
         <>
-            <ErrorDialog ref={errorDialogRef} buttonLabel="Close">
+            <Dialog ref={errorDialogRef} buttonLabel="Close">
                 <h2 className="text-xl font-bold text-red-400 my-4">
                     Empty and blank fields are not allowed
                 </h2>
 
                 <p className="text-stone-500 mb-4">Please fill all the form fields</p>
-            </ErrorDialog>
+            </Dialog>
 
             <div className="w-[35rem] mt-16">
                 <menu className="flex items-center justify-end gap-4 my-4">

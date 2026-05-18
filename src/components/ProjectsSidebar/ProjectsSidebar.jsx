@@ -17,7 +17,7 @@ export default function ProjectsSidebar({ onAddProjectClick, projectsState, hand
             </div>
             <ul className="mt-4">
                 {projectsState.projects.map(currentProject => (
-                    <li key={projectsState.id}>
+                    <li key={currentProject.id}>
                         <button
                          className={currentProject.id === selectedProjectId ? selectedProjectButtonClasses : notSelectedProjectButtonClasses}
                          onClick={() => handleSelectProject(currentProject.id)}
